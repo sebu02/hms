@@ -1,5 +1,6 @@
 
 from pathlib import Path
+from datetime import timedelta
 import environ
 
 
@@ -23,6 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'rest_framework_simplejwt',
     
     'app1',
 ]
@@ -57,6 +61,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hms.wsgi.application'
 
+REST_FRAMEWORK = {
+    
+     'DEFAULT_PERMISSION_CLASSES': (
+         
+        'rest_framework.permissions.DjangoModelPermissions',
+        
+    ),
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=3000),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
+   
+
+    "AUTH_HEADER_TYPES": ("Bearer",),
+   
+}
 
 DATABASES = {
     'default': {
@@ -68,7 +94,6 @@ DATABASES = {
         'PORT':env('PORT'),
     } 
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -85,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -95,7 +119,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 STATIC_URL = '/static/'
 
