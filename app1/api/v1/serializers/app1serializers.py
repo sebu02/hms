@@ -1,24 +1,31 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import Group
 
 from app1.models import *
 
-
+        
 class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields=['name','username','password','is_doctor',]
+    
+    def save(self):
+            user = User(username=self.validated_data['username'], name=self.validated_data['name'],
+                        is_doctor=self.validated_data['is_doctor'])
+            password = self.validated_data['password']
+            user.set_password(password)
+            user.save()
+            return user
+
+
+class GetDoctorSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=User
-        fields=['name','username','password']
+        fields='__all__'
     
-    def save(self):
-        user = User(username=self.validated_data['username'], name=self.validated_data['name'])
-        password = self.validated_data['password']
-        user.set_password(password)
-        user.save()
-        return user
-
-
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
