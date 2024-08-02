@@ -55,15 +55,3 @@ class LoginSerializer(serializers.Serializer):
         data["access"] = str(refresh.access_token)
         return data
     
-class DepartmentSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model=Departments
-        fields='__all__'
-        
-        
-class Patient_Records_Serializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model=Patient_Records
-        fields='__all__'
