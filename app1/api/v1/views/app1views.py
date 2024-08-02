@@ -34,17 +34,40 @@ class LoginView(APIView):
 
 class DoctorView(ListAPIView):
     permission_class=[IsAuthenticated]
-    serializer_class=GetDoctorSerializer
+    serializer_class=GetUserSerializer
     
-    def get_queryset(self,id):
+    def get_queryset(self):
         user=self.request.user
         if user.is_doctor==True: 
            user=User.objects.filter(is_doctor=True)
            return user
-        elif (user.id==id):
-            obj=User.objects.get(id=id)
-            return obj
         else:
             return Response({'message':'you are not a doctor'},status=status.HTTP_400_BAD_REQUEST)
+        
+
+@api_view(['GET'])
+def doctor_view(self,pk):
+   
+    serializer_class=GetUserSerializer
+    user=self.request.user
+    if(user.is_doctor==True):
+         queryset=User.objects.get(id=pk)
+         return queryset
+    else:
+        return Response({'message':'you are not a doctor'},status=status.HTTP_400_BAD_REQUEST)
+    
+class PatientView(ListAPIView):
+    permission_class=[IsAuthenticated]
+    serializer_class=GetUserSerializer
+    
+    def get_queryset(self):
+        user=self.request.user
+        if user.is_doctor==True: 
+           user=User.objects.filter(is_doctor=True)
+           return user
+        else:
+            return Response({'message':'you are not a doctor'},status=status.HTTP_400_BAD_REQUEST)
+        
+            
         
     
