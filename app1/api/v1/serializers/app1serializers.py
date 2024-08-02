@@ -9,11 +9,11 @@ from app1.models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
-        fields=['name','username','password','usertype',]
+        fields=['name','username','password','is_doctor',]
     
     def save(self):
             user = User(username=self.validated_data['username'], name=self.validated_data['name'],
-                        is_doctor=self.validated_data['usertype'])
+                        is_doctor=self.validated_data['is_doctor'])
             password = self.validated_data['password']
             user.set_password(password)
             user.save()

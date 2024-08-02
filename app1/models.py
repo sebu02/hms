@@ -6,8 +6,8 @@ from django.contrib.auth.models import Group
 
 class User(AbstractUser):
     name=models.CharField(max_length=255, blank=True ,null=True)
-    usertype=models.CharField(max_length=255)
-    
+    is_doctor=models.BooleanField(default=False)
+
     class meta:
         verbose_name='User'
         verbose_name_plural='Users'
