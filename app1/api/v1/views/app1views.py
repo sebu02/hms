@@ -229,7 +229,7 @@ def user_logout(request):
     if request.method == 'POST':
         try:
             # Delete the user's token to logout
-            request.data['access']=""
+            request.auth=""
             return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
