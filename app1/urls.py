@@ -13,8 +13,13 @@ urlpatterns = [
     
     path('register/',RegisterView.as_view(),name='register'),
     path('login/',LoginView.as_view(),name='login'),
-    path('doctors/<pk>',DoctorView.as_view(),name='doctor-id'),
-    path('doctors/',DoctorView.as_view(),name='doctor'),
+    path('doctors/',DoctorView.as_view(),name='doctor-view'),
+    path('doctors/<int:pk>',doctor_profile_view,name='doctor-profile-view'),
+    path('patient/',PatientView.as_view(),name='patient-view'),
+    path('patient/<int:pk>',patient_profile_view,name='patient-profile-view'),
+    path('patient_records/',PatientRecordView.as_view(),name='patient-record=view'),
+    
+    
    
     
 ]

@@ -9,18 +9,27 @@ from app1.models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
-        fields=['name','username','password','is_doctor',]
+        fields=['name','username','password','usertype','departments']
     
-    def save(self):
-            user = User(username=self.validated_data['username'], name=self.validated_data['name'],
-                        is_doctor=self.validated_data['is_doctor'])
+    def create(self,validated_data):
+            username=self.validated_data['username']
+            name=self.validated_data['name']
+            usertype=self.validated_data['usertype']
+            departments=self.validated_data['departments']
+            user=User(username=username,name=name,usertype=usertype,departments=departments)
             password = self.validated_data['password']
-            user.set_password(password)
+            user.set_password(password)   
             user.save()
             return user
 
 
 class GetUserSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=User
+        fields=['name']
+        
+class UserProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=User
@@ -54,4 +63,11 @@ class LoginSerializer(serializers.Serializer):
         data["refresh"] = str(refresh)
         data["access"] = str(refresh.access_token)
         return data
+    
+
+class PatientRecordSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=Patient_Records
+        fields=['patient_id','observations','treatments']
     
