@@ -17,7 +17,13 @@ urlpatterns = [
     path('doctors/<int:pk>',doctor_profile_view,name='doctor-profile-view'),
     path('patient/',PatientView.as_view(),name='patient-view'),
     path('patient/<int:pk>',patient_profile_view,name='patient-profile-view'),
-    path('patient_records/',PatientRecordView.as_view(),name='patient-record=view'),
+    path('patient_records/',PatientRecordView.as_view(),name='patient-record'),
+    path('patient_records/<int:pk>',patient_record_view,name='patient-record-view'),
+    path('departments/',DepartmentView.as_view(),name='department-view'),
+    path('departments/<int:pk>/doctors',department_doctor_view,name='department-doctor-view'),
+    path('departments/<int:pk>/patients',department_patient_view,name='department-patient-view'),
+    path('logout/',user_logout,name='logout'),
+    
     
     
    

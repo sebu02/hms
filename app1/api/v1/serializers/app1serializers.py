@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import serializers 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import Group
@@ -33,7 +33,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=User
-        fields='__all__'
+        fields=['id','name','usertype','departments','username',]
     
 
 class LoginSerializer(serializers.Serializer):
@@ -69,5 +69,19 @@ class PatientRecordSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=Patient_Records
-        fields=['patient_id','observations','treatments']
+        fields=['patient_id','observations','treatments','departments']
+        
+
+class GetPatientRecordSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=Patient_Records
+        fields='__all__'
+        
+        
+class DepartmentSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=Departments
+        fields='__all__'
     
