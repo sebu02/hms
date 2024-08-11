@@ -2,7 +2,7 @@
 _pycache_
 db.sqlite3
 /env
-*.env
+# *.env
 .vscode
 csv_data/
 staticfiles/
