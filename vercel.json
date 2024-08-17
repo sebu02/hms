@@ -14,7 +14,7 @@
         "src": "hms/wsgi.py",
         "use": "@vercel/python",
         "app":"application",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.7" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
     }],
     "routes": [
         {
