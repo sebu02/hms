@@ -96,7 +96,12 @@ SIMPLE_JWT = {
 #     } 
 # }
 
-DATABASES  = dj_database_url.config(
+DATABASES = dj_database_url.config(
+    conn_max_age=600,
+    conn_health_checks=True,
+)
+
+DATABASES ['default'] = dj_database_url.config(
     default='postgresql://postgres.vazxeppigquxtvvmgvgp:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
     conn_max_age=600,
     conn_health_checks=True,
