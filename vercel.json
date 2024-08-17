@@ -1,0 +1,21 @@
+{
+    "builds": [{
+        "src": "hms/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "hms/wsgi.py"
+        }
+    ],
+    "env": {
+        "ENGINE": "django-insecure-6u3h-&!kpxi%2=oj90@))t5$1p#$+c8&vfv13yz-4&ix9o9urx",
+        "NAME":"django.db.backends.postgresql",
+        "USER": "postgres.vazxeppigquxtvvmgvgp",
+        "PASSWORD": "#S*KgLARBJ8xSYb",
+        "HOST": "aws-0-ap-south-1.pooler.supabase.com",
+        "PORT":"6543"
+    }
+}

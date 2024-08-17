@@ -14,7 +14,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 AUTH_USER_MODEL='app1.User'
 
@@ -85,39 +85,16 @@ SIMPLE_JWT = {
    
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE':env('ENGINE'),
-#         'NAME':env('NAME'),
-#         'USER': env('USER'),
-#         'PASSWORD': env('PASSWORD'),
-#         'HOST': env('HOST'),
-#         'PORT':env('PORT'),
-#     } 
-# }
-
-# DATABASES = dj_database_url.config(
-#     conn_max_age=600,
-#     conn_health_checks=True,
-# )
-
-# DATABASES ['default'] = dj_database_url.config(
-#     default='postgresql://postgres.vazxeppigquxtvvmgvgp:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
-#     conn_max_age=600,
-#     conn_health_checks=True,
-# )
-
-DATABASES  = {"default":{ dj_database_url.config(
-    'postgresql://postgres.vazxeppigquxtvvmgvgp:@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
-    conn_max_age=600,
-    conn_health_checks=True,
-
-
-)
- }}
-
-
-
+DATABASES = {
+    'default': {
+        'ENGINE':env('ENGINE'),
+        'NAME':env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
+        'PORT':env('PORT'),
+    } 
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
