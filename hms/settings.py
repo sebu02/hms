@@ -107,7 +107,7 @@ SIMPLE_JWT = {
 #     conn_health_checks=True,
 # )
 
-DATABASES['default'] = dj_database_url.parse(
+DATABASES = dj_database_url.parse(
     'postgresql://postgres.vazxeppigquxtvvmgvgp:@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
     conn_max_age=600,
     conn_health_checks=True,
