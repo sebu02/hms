@@ -13,12 +13,14 @@
     "builds": [{
         "src": "hms/wsgi.py",
         "use": "@vercel/python",
+        "app":"application",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.7" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "hms/wsgi.py"
+            "dest": "hms/wsgi.py",
+            "app":"application"
         }
     ]
 }
