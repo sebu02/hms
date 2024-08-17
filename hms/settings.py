@@ -85,16 +85,16 @@ SIMPLE_JWT = {
    
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE':env('ENGINE'),
-        'NAME':env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT':env('PORT'),
-    } 
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE':env('ENGINE'),
+#         'NAME':env('NAME'),
+#         'USER': env('USER'),
+#         'PASSWORD': env('PASSWORD'),
+#         'HOST': env('HOST'),
+#         'PORT':env('PORT'),
+#     } 
+# }
 
 DATABASES['default'] = dj_database_url.config(
     default='postgresql://postgres.vazxeppigquxtvvmgvgp:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
