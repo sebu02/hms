@@ -12,7 +12,7 @@
     },
     "builds": [{
         "src": "hms/wsgi.py",
-        "use": "hms/vercel-python-wsgi",
+        "use": "@natanffs/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
