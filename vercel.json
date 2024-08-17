@@ -1,16 +1,5 @@
 {
-    "build": {
-        "env": {
-        "ENGINE": "django-insecure-6u3h-&!kpxi%2=oj90@))t5$1p#$+c8&vfv13yz-4&ix9o9urx",
-        "NAME":"django.db.backends.postgresql",
-        "USER": "postgres.vazxeppigquxtvvmgvgp",
-        "PASSWORD": "#S*KgLARBJ8xSYb",
-        "HOST": "aws-0-ap-south-1.pooler.supabase.com",
-        "PORT":"6543 "
-        },
-
-    
-    "build": [{
+    "builds": [{
     "src": "your-app-name/wsgi.py",
     "use": "@vercel/python"
      }],
@@ -18,8 +7,17 @@
     {
         "src": "/(.*)",
         "dest": "your-app-name/wsgi.py"
-    }]
-  }
+    }],
+  "build": {
+    "env": {
+    "ENGINE": "django-insecure-6u3h-&!kpxi%2=oj90@))t5$1p#$+c8&vfv13yz-4&ix9o9urx",
+    "NAME":"django.db.backends.postgresql",
+    "USER": "postgres.vazxeppigquxtvvmgvgp",
+    "PASSWORD": "#S*KgLARBJ8xSYb",
+    "HOST": "aws-0-ap-south-1.pooler.supabase.com",
+    "PORT":"6543 "
+    }
+}
 }
 
     
