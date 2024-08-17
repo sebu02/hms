@@ -10,7 +10,7 @@
         },
 
     
-    "builds": [{
+    "build": [{
     "src": "your-app-name/wsgi.py",
     "use": "@vercel/python"
      }],
