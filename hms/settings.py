@@ -2,6 +2,7 @@
 from pathlib import Path
 from datetime import timedelta
 import environ
+import dj_database_url
 
 
 env = environ.Env()
@@ -94,6 +95,12 @@ DATABASES = {
         'PORT':env('PORT'),
     } 
 }
+
+DATABASES['default'] = dj_database_url.config(
+    default='postgresql://postgres.vazxeppigquxtvvmgvgp:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
+    conn_max_age=600,
+    conn_health_checks=True,
+)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
