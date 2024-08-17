@@ -13,7 +13,7 @@
     "builds": [{
         "src": "hms/wsgi.py",
         "use": "@natanffs/vercel-python-wsgi",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.6" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.6.8" }
     }],
     "routes": [
         {
