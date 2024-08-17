@@ -7,28 +7,20 @@
         "PASSWORD": "#S*KgLARBJ8xSYb",
         "HOST": "aws-0-ap-south-1.pooler.supabase.com",
         "PORT":"6543 "
-        }
-
-    },
-    
-        "builds": [{
-            "src": "hms/wsgi.py",
-            "use": "@vercel/python",
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.6" }
         },
-        {
-            "src": "build_files.sh",
-            "use": "@vercel/static-build",
-            "config": { "distDir": "staticfiles_build" }
-        }],
-        "routes": [
-            {
-                "src": "/static/(.*)",
-                "dest": "/static/$1"
-            },
-            {
-                "src": "/(.*)",
-                "dest": "hms/wsgi.py"
-            }
-        ]
-    }
+
+    
+    "builds": [{
+    "src": "your-app-name/wsgi.py",
+    "use": "@vercel/python"
+     }],
+    "routes": [
+    {
+        "src": "/(.*)",
+        "dest": "your-app-name/wsgi.py"
+    }]
+  }
+}
+
+    
+    
