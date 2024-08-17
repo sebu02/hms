@@ -102,6 +102,15 @@ DATABASES  = dj_database_url.config(
     conn_health_checks=True,
 )
 
+DATABASES['default'] = dj_database_url.parse(
+    'postgresql://postgres.vazxeppigquxtvvmgvgp:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
+    conn_max_age=600,
+    conn_health_checks=True,
+)
+
+
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
