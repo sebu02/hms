@@ -44,7 +44,6 @@ requests-toolbelt==1.0.0
 setuptools==72.2.0
 simplejwt==2.0.1
 six==1.16.0
-sqlparse==0.5.0
 TimeConvert==3.0.13
 tomli==1.2.3
 typing==3.7.4.3
